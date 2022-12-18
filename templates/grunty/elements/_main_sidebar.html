@@ -1,0 +1,56 @@
+{% load static %}
+
+<aside class="main-sidebar sidebar-dark-red elevation-4">
+    <!-- Brand Logo -->
+    <a href="{% url 'table' %}" class="brand-link">
+        <img src="{% static 'img/x.png' %}" alt="qz logo" class="brand-image"
+             >
+        <span class="brand-text font-weight-light">Gleba</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+
+
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+
+                <li class="nav-item">
+                    <a href="{% url 'table' %}" class="nav-link">
+                        <i class="nav-icon fas fa-list-alt"></i>
+                        <p>
+                            Lista próbek
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'new' %}" class="nav-link">
+                        <i class="nav-icon fas fa-plus"></i>
+                        <p>
+                            Dodaj próbkę
+                        </p>
+                    </a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a href="{% url 'download' %}" class="nav-link">
+                        <i class="nav-icon fas fa-file-excel"></i>
+                        <p>
+                            Eksport
+                        </p>
+                    </a>
+                </li>
+
+
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

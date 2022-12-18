@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block title_outer %}
+        <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+
+    {% block meta %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% endblock %}
+
+    {% block stylesheets %}
+        {% include 'grunty/elements/_styles.html' %}
+        {% block extra_stylesheets %}{% endblock %}
+    {% endblock %}
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="hold-transition sidebar-mini {% block body_class %}{% block bodyclass %}layout-fixed {% endblock %}{% endblock %}">
+
+{% block body %}
+    <div class="wrapper">
+        {% block nav_header %}
+            {% include 'grunty/elements/_main_header.html' %}
+        {% endblock %}
+
+        {% block nav_sidebar %}
+            {% include 'grunty/elements/_main_sidebar.html' %}
+        {% endblock %}
+
+        {% block content_wrapper %}
+            <div class="content-wrapper">
+                {% block content_header %}
+                    <section class="content-header">
+                        {% block no_heading %}
+
+                        {% endblock %}
+                    </section>
+                {% endblock %}
+
+                {% block content_outer %}
+                    <section class="content">
+                        {% block content_block_wrap %}
+                            {% block content %}
+                            {% endblock %}
+                        {% endblock %}
+                    </section>
+                {% endblock %}
+            </div>
+        {% endblock %}
+
+        {% block nav_footer %}
+            {% include 'grunty/elements/_main_footer.html' %}
+        {% endblock %}
+    </div>
+{% endblock body %}
+
+{% block javascript %}
+    {% include 'grunty/elements/_scripts.html' %}
+{% endblock %}
+{% block extra_js %}
+{% endblock %}
+
+{% block alerts %}
+    {% if messages %}
+        {% for message in messages %}
+            <script>showAlert({{ message.level }}, "{{ message }}")</script>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+</body>
+</html>
